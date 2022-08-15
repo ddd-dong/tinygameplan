@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dino{
+            background-color: black;
+            outline: black;
+            width: 15.5px;
+            height: 15.5px;
+
+        }
+    </style>
+</head>
+<body>
+    <canvas class="grid"></canvas>
+    <div class="dino"><p></p></div>
+    <script>
+        let localX,localY
+
+        var drawGrid = function(w, h) {
+            var canvas = document.querySelector('.grid');
+            var ctx = canvas.getContext('2d');
+            ctx.canvas.width  = w;
+            ctx.canvas.height = h;
+            for (x=0;x<=w;x+=20) {
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, h);
+                ctx.stroke();
+            }
+            for (y=0;y<=h;y+=20) {
+                ctx.moveTo(0, y);
+                ctx.lineTo(w, y);
+                ctx.stroke();
+            }
+        };
+        drawGrid(1000, 1000);
+        
+        const dinoloac=()=>{
+            dino = document.querySelector('.dino')
+            dino.style.left = dino.offsetLeft + 'px';
+            dino.style.top = dino.offsetTop + 'px';
+        }
+        const dinoset=()=>{
+            dino.style.position = 'absolute';
+        }
+        const init=()=>{
+            let dino = document.querySelector('.dino')
+            dinoloac();
+            dinoset();
+        } 
+        init();
+        Lo=()=>{
+            localX = (dino.offsetLeft-10)/20 
+            localY = (dino.offsetTop-10)/20
+            console.log('X : '+localX,'Y : '+localY)
+        }
+        document.addEventListener('keydown',(event)=>{
+            let dino = document.querySelector('.dino');
+            console.log(event.keyCode); 
+            if(event.keyCode == 87){
+                dino.style.top = (dino.offsetTop - 20)+'px';
+                Lo();
+            }
+            if(event.keyCode == 68){
+                dino.style.left = (dino.offsetLeft + 20)+'px';
+                Lo();
+            }
+            if(event.keyCode == 83){
+                dino.style.top = (dino.offsetTop + 20)+'px';
+                Lo();
+            }
+            if(event.keyCode == 65){
+                dino.style.left = (dino.offsetLeft - 20)+'px';
+                Lo();
+            }
+        });
+        
+
+
+        let XYdata = []
+        for(z=0;z<50;z++){
+            XYdata.push([])
+            for(p=0;p<50;p++){
+                XYdata[z].push(0)
+            }
+        }
+        console.log(XYdata)
+        dino.style.left = "10px"
+        dino.style.top = "10px"
+
+    </script>
+</body>
+</html>
+
+
+

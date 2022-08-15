@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: white;
+            width: 10px;
+            height: 10px;
+        }
+        #box{
+            width: 500px;
+            height: 500px;
+            background: #000;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    
+    <script>
+        var teastl = [];
+        var ffff = document.getElementById('box')
+        for(i=0;i<10;i++){
+            teastl.push([])
+            for(ii=0;ii<10;ii++){
+                ffff.innerHTML += `<div id="a${i,ii}"></div>`
+                teastl[i][ii] = document.getElementById(`a${i,ii}`)
+            }
+        }
+        teastl[1][1].style.backgroundColor = 'blue';
+    </script>
+    <!-- <script>
+    console.log("script start")
+    var map = [
+    [1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1]    
+    ];
+    var plotStory =[[],[['I am Y.T.',"null"],['I am not oil',"46"],["123456","null"],"END"],[["123","null"],['I am not oil',"46"],"END"]]
+    const gameStartbutton = document.createElement("button");
+    const gameStartbutton_text = document.createTextNode('game start');
+    const mainBox = document.getElementById('mainBox');
+    const plotTextwindow = document.createElement('div');
+    const plotperson = document.createElement('div');
+    const plotTextwindow_next = document.createElement("div");
+    const plottext = document.createElement("p");
+    let talktext,part,KeycodeN,plotRate;
+    let textRate = 0;
+    let nBAMove = true;
+
+    //功能
+    async function say(){//印出劇情的主程式
+
+       if(plotRate<plotStory[part].indexOf("END")){
+            textRate = 0;
+            console.log(`textRate${textRate}||plotRate${plotRate}`)
+            typing();
+            
+            if(plotStory[part][plotRate][1] != 'null'){
+                plotperson.style.display = 'block';
+                plotperson.innerHTML = plotStory[part][plotRate][1];
+            }
+            else{
+                plotperson.style.display = 'none';
+                plotperson.innerHTML = "";
+            }
+            await waitingKeypress();
+            console.log('good job!')  ;
+            plotRate +=1;
+            if(plotRate<plotStory[part].indexOf("END")){
+                
+                plottext.innerHTML ="";
+                say(plotStory[part][plotRate][0]);
+            }
+            else{
+                console.log("plot end1")
+                
+                plotRate=-1;
+                PlotEND();
+                return 0
+           }
+                
+        
+       }
+       else{
+            console.log("plot end2")
+            plotRate=-1
+            return 0
+       }
+
+    }
+    function waitingKeypress() {//等待enter按下(劇情)
+        return new Promise((resolve) => {
+          document.addEventListener('keydown', onKeyHandler);
+          function onKeyHandler(e) {
+            if (e.keyCode|mainBox.onclick ) {
+              document.removeEventListener('keydown', onKeyHandler);
+              resolve();
+            }
+          }
+        });
+      }
+    function typing(){
+        if (textRate<=plotStory[part][plotRate][0].length){
+            console.log(plotStory[part][plotRate][0].charAt(textRate));
+            plottext.innerHTML += plotStory[part][plotRate][0].charAt(textRate);
+            textRate++
+            setTimeout(typing,90);
+        }
+         else{
+           
+            return 0
+        }
+    }
+    function PlotEND(){
+        if (plotRate === -1){
+            if(part === 1){
+                console.log("PLOT_1 END")
+                mainBox.style.backgroundImage ='none';
+                plotTextwindow.style.display = 'none';
+                travel(1,1);
+            }
+        }
+    }
+    function nextbuttonanimation(){
+        if(plotRate != -1){
+            if(nBAMove){
+                plotTextwindow_next.style.marginTop='17px';
+                nBAMove = false;
+                setTimeout(nextbuttonanimation,500);
+            }
+            else{
+                plotTextwindow_next.style.marginTop='23px';
+                nBAMove = true;
+                setTimeout(nextbuttonanimation,500);
+            }
+        }
+        else{
+            plotTextwindow_next.style.marginTop = '20px';
+        }
+    }
+    function initplot(){
+
+    }
+
+    //init
+    function init(){
+        console.log("initmainBox");
+        mainBox.style.backgroundImage = "none";
+        starttinitPlot();
+        initMap()
+        Gamestartmenu();
+    }
+    function starttinitPlot(){ //first plot start
+        plotperson.className = 'plotperson';
+        plotperson.id = 'plotperson';
+        mainBox.appendChild(plotperson);
+        plotTextwindow.className = 'textwindow';
+        plotTextwindow.id = 'plotTextwindow';
+        mainBox.appendChild(plotTextwindow);
+        plottext.id = 'plottext';
+        plotTextwindow.appendChild(plottext);
+        plotTextwindow_next.className = 'textwindow_next';
+        plotTextwindow_next.id = 'plotTextwindow_next';
+        plotTextwindow.appendChild(plotTextwindow_next);
+        plottext.className = 'plottext';
+        plotperson.style.display = 'none';
+        plotTextwindow.style.display = 'none';
+    }
+    function initMap(){
+        
+    }
+
+    //流程
+    function Gamestartmenu(){ //start menu
+        console.log("Gamestartmenu");
+        gameStartbutton.className ='startmenubutton';
+        gameStartbutton.id = 'gmaeStartbutton'; 
+        mainBox.appendChild(gameStartbutton);
+        gameStartbutton.appendChild(gameStartbutton_text);
+        gameStartbutton.onclick = Gamestart;
+        
+    }
+    //function Startbuttononclick(){
+    //    document.getElementById('gmaeStartbutton').background-color = "blue";
+    //}
+    function Gamestart(){ //startbutton onclick 
+        console.log("startbutton onclick ");
+        document.getElementById('gmaeStartbutton').style.display = 'none';
+        //initfirstPlot();
+        travel(0,0);
+    }
+    function initfirstPlot(){
+        mainBox.style.backgroundImage = "url('/picture/campfire.png')";
+        mainBox.style.backgroundRepeat = 'no-repeat';
+        mainBox.style.backgroundAttachment = 'fixed';
+        mainBox.style.backgroundSize = '80% 80%';
+        plotTextwindow.style.display = 'block';
+        firstPlot();
+    }
+    function firstPlot(){
+        console.log("first plot start");
+        plotRate = 0;
+        part = 1;
+        nextbuttonanimation();
+        say();
+        //sSay = setInterval(say("I am Y.T."),500);
+    }
+
+    function travel(x,y){
+        console.log(`now you at (${x},${y})||${map[x][y]}`);
+        plotTextwindow.style.display = 'none';
+        
+    }
+    
+    init();
+
+    
+</script> -->
+</body>
+</html>

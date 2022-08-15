@@ -1,0 +1,447 @@
+body{
+    background-color: black;
+}
+.mainBox {
+    width: 1216px;
+    height: 650px;
+    border-width: 5px;
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    overflow: hidden;
+    margin-left: 10%;
+    margin-top: 2%;
+    background-image: url(none);
+}
+#gamestart_version_number{
+    color: white;
+    position: absolute;
+    z-index: 3;
+    margin-top: 381px;
+    margin-left: 467px;
+}
+.bg_mask_black{
+    position: absolute;
+    z-index: 2;
+    width: 1216px;
+    height: 650px;
+    background-color: black;
+    opacity: .5;
+}
+.startmenubutton{
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    width: 300px;
+    height: 75px;
+    border-width: 3px;
+    color: aliceblue;
+    background-color: black;
+    position: absolute;
+    z-index: 3;
+    font-size: 20px;
+    font-weight:500;
+    margin-left: 467px;
+    /* display: inline-block; */
+}
+#gmaeStartbutton{
+    margin-top: 200px; 
+}
+#gameLoadbutton{
+    margin-top: 300px; 
+}
+
+/* Plot */
+#mapMask{
+    position: absolute;
+    z-index: 5;
+    margin: -8px;
+    height: 490px;
+    width: 1216px;
+}
+.textwindow{
+    position: absolute;
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    width: 1046.2px;
+    height: 200px;
+    border-width: 3px;
+    color: aliceblue;
+    background-color: black;
+    margin-top: 400px;
+    margin-left: 6.5%;
+    z-index: 1;
+}
+.textwindow_next{
+    position: absolute;
+    z-index: 2;
+    border-color: black;
+    background-color: black;
+    border-radius:0px ;
+    background-image: url(/picture/nextbutton.png);
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+    margin-left: 48%;
+    margin-top: 160px;
+
+}
+.plottext{
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    background-color: black;
+    height: 60%;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2.3%;
+    font-size: 27px;
+    margin-bottom: 0px;
+    /* text-align:center; */
+    text-align:left;
+    /* font-family:sans-serif; */
+}
+.plottext_button{
+    border-width: 2.2px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 50px;
+    border-color: white;
+    border-radius: 3px;
+    border-style: solid;
+    font-size: 23px;
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    width: 210px;
+    text-align:center;
+}
+
+#plottext_button1{
+    margin-left: 300px;
+}
+#plottext_button2{
+    margin-left: 600px;
+}
+.plotperson{
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    position: absolute;
+    z-index: 2;
+    background: black;
+    height: 270px;
+    width: 204px;
+    margin-left: 49px;
+    margin-top: 270px;
+}
+.plotperson_img{
+    width: 100%;
+    margin-top: 4px;
+    height: 80%;
+}
+.plotperson_name{
+    width: 100%;
+    border: 0px;
+    height: 17%;
+    border-top: 3px white solid;
+    margin-top: -4px;
+    color: white;
+    line-height: 38px;
+    text-align: center;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+
+/* Map */
+
+.mapgrid{
+    width: 36px;
+    height: 36px;
+    background-color: black;
+    margin-left: 2px ;
+    margin-right: 2px;
+    display: inline-block;
+    /* 2.94 right 30X12 inline*/
+}
+.maprow{
+    height: 36px;
+    border: 0px;
+    margin-top: 3.5px;
+    margin-left: 0px;
+}
+.mapWindow{
+    height: 480px;
+    width: 100%;
+    border: 0px;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 2.5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    z-index:2;
+    background-color: rgb(129, 138, 139);
+    padding-top: 3.5px;
+
+}
+.travelWindow{
+    height: 23%;
+    width: 98%;
+    margin-left: 0.8%;
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    background-color: black;
+    
+}
+
+.mapMask{
+    z-index:1;
+}
+.mapgrid_thing_teast{
+    z-index:3;
+    background-color: aliceblue;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+}
+.mapgrid_thing_outside{
+    z-index:3;
+    background-color: rgb(129, 138, 139);
+    width: 36px;
+    height: 36px;
+    position: absolute;
+}
+.map_picture_teast{
+    z-index:3;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+}
+.mapplayer{
+    z-index:5;
+    background-color: crimson;
+    border-radius: 100px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin: 8px;
+}
+#mapWindow_date{
+    color: white;
+}
+.mapgrid_thing_village{
+    z-index:3;
+    background-color: yellow;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+}
+
+#promptWindow{
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3.2px;
+    width: 600px;
+    height: 150px;
+    margin-left: 320px;
+    margin-top: 160px;
+    position: absolute;
+    z-index:100;
+    background-color: black;
+}
+#promptWindow_text{
+    color: white;
+    margin-top: 20px;
+    margin-left: 100px;
+    height: 80px;
+    width: 400px;
+    font-size: 21px;
+    margin-bottom: 0px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#promptWindow_next{
+    content: url('/picture/nextbutton.png');
+    width: 15px;
+    margin-left: 49%;
+    margin-top: 20px;
+
+
+}
+
+/* // villageWindow
+// villageWindow_wholesaler_button
+// villageWindow_task_button
+// villageWindow_social_button 
+// villageWindow_goout_button
+// villageWindow_shop_button 
+// villageWindow_villagename  */
+#villageWindow{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+#villageWindow_wholesaler_button{
+
+}
+#villageWindow_task_button{
+
+}
+#villageWindow_social_button {
+
+}
+#villageWindow_goout_button{
+
+
+}
+#villageWindow_Equipmentshop_button{
+
+}
+#villageWindow_Inn_button{
+
+}
+#villageWindow_Propsshop_button{
+
+}
+.villageWindow_button{
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    width: 300px;
+    height: 75px;
+    border-width: 3px;
+    color: aliceblue;
+    background-color: black;
+    font-size: 20px;
+    font-weight:500;
+    text-align:center;
+}
+#villageWindow_villagename{
+    color: white;
+}
+
+
+
+
+#VWsec_WT{
+    color: white;
+}
+#VWsec_window{
+    width: 100%;
+    height: 80%;
+    margin: 0px;
+}
+
+.VWsec_button{
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    width: 290px;
+    height: 75px;
+    border-width: 3px;
+    color: aliceblue;
+    background-color: black;
+    font-size: 20px;
+    font-weight:500;
+    text-align:center;
+}
+
+
+
+
+
+
+
+#backpackWindow{
+    
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3.2px;
+    width: 70%;
+    height: 550px;
+    margin-left: 60px;
+    margin-top: -530px;
+    position: absolute;
+    z-index:100;
+    background-color: black;
+}
+#backpackWindow_text{
+    color: white;
+    margin-top: 20px;
+    margin-left: 100px;
+    height: 80px;
+    width: 400px;
+    font-size: 21px;
+    margin-bottom: 0px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#backpackWindow_next{
+    content: url('/picture/nextbutton.png');
+    width: 15px;
+    margin-left: 49%;
+    margin-top: 20px;
+}
+
+#backpackWindowInventory{
+    border-color: #fff;
+    border-radius: 1px;
+    border-style: solid;
+    border-width: 5px;
+    background-color: aliceblue;
+    margin-top: 50px;
+}
+.Invgrid{
+    width: 90px;
+    height: 90px;
+    background-color: black;
+    margin-left: 2px ;
+    margin-right: 2px;
+    display: inline-block;
+    color: white;
+    /* 2.94 right 30X12 inline*/
+}
+.Invrow{
+    height: 90px;
+    border: 0px;
+    margin-top: 3.5px;
+    margin-left: 0px;
+    width: 500px;
+}
+#backpackWindowInventoryItemDescription{
+    border-color: cornsilk;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 5px;
+    background-color: black;
+    color: white;
+    margin-top: -460px;
+    margin-left: 500px;
+    height:450px;
+    width: 550px;
+    
+
+}
+#backpackWindowInventoryItemDescriptionText{
+    color: white;
+}
+#backpackWindow_close{
+    width: 80px;
+    height: 50px;
+    margin-left: 465px;
+    margin-top: 285px;
+}
+
+#backpackWindowInventoryItembuysellbutton{
+
+    width: 60px;
+    height: 60px;
+
+}
